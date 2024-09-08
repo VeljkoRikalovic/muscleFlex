@@ -2,7 +2,7 @@ import Groq from "groq-sdk";
 import { FormValues } from "../getWorkout/page";
 import { SetStateAction } from "react";
 
-const key = process.env.GROQ_API_KEY;
+console.log(process.env.GROQ_API_KEY);
 
 export async function getWorkout(
   data: FormValues,
@@ -13,7 +13,7 @@ export async function getWorkout(
   setLoading: { (value: SetStateAction<Boolean>): void; (arg0: boolean): void }
 ) {
   const groq = new Groq({
-    apiKey: key,
+    apiKey: process.env.GROQ_API_KEY,
     dangerouslyAllowBrowser: true,
   });
   async function main() {

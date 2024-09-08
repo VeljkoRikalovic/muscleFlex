@@ -20,7 +20,7 @@ export default function Page() {
   const [loading, setLoading] = useState<Boolean>(false);
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    getWorkout(data, setWorkout, setLoading);
+    await getWorkout(data, setWorkout, setLoading);
   };
 
   return (
