@@ -3,7 +3,7 @@ import Link from "next/link";
 function Page() {
   return (
     <>
-      <div className="flex items-end md:min-h-[80vh] justify-start text-center text-primary">
+      <div className="flex items-center md:min-h-[80vh] justify-center text-center text-primary">
         <div className="p-8">
           <h1 className="sm:text-4xl md:text-6xl font-bold mb-4">
             Welcome to

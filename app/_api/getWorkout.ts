@@ -1,7 +1,8 @@
 import Groq from "groq-sdk";
 import { FormValues } from "../getWorkout/page";
-import { cache, Dispatch, SetStateAction } from "react";
-import { error } from "console";
+import { SetStateAction } from "react";
+
+const key = process.env.GROQ_API_KEY;
 
 export async function getWorkout(
   data: FormValues,
@@ -11,13 +12,14 @@ export async function getWorkout(
   },
   setLoading: { (value: SetStateAction<Boolean>): void; (arg0: boolean): void }
 ) {
+  const groq = new Groq({
+    apiKey: key,
+    dangerouslyAllowBrowser: true,
+  });
   async function main() {
-    const groq = new Groq({
-      apiKey: "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",
-      dangerouslyAllowBrowser: true,
-    });
     try {
       setLoading(true);
+
       const chatCompletion = await groq.chat.completions.create({
         messages: [
           {
